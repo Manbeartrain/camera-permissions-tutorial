@@ -8,7 +8,7 @@ import {
 
 import usePermissions from "../hooks/usePermissions";
 import ImageOptions from "../components/home/ImageOptions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUser } from "../redux/UserSlice";
 import { useNavigation } from "@react-navigation/native";
 
@@ -21,16 +21,12 @@ const EditProfileScreen = () => {
 	const dispatch = useDispatch();
 	const bottomSheetRef = useRef(null);
 
-	const user = useSelector(({ UserSlice }) => UserSlice.user);
-
-	const [image, setImage] = useState(user?.image ? user?.image : "");
-	const [username, setUsername] = useState(
-		user?.username ? user?.username : ""
-	);
-	const [title, setTitle] = useState(user?.title ? user?.title : "");
-	const [email, setEmail] = useState(user?.email ? user?.email : "");
-	const [mobile, setMobile] = useState(user?.mobile ? user?.mobile : "");
-	const [twitter, setTwitter] = useState(user?.twitter ? user?.twitter : "");
+	const [image, setImage] = useState("");
+	const [username, setUsername] = useState("");
+	const [title, setTitle] = useState("");
+	const [email, setEmail] = useState("");
+	const [mobile, setMobile] = useState("");
+	const [twitter, setTwitter] = useState("");
 
 	const handleUploadImageOnPress = async () => {
 		await checkCameraPermission({

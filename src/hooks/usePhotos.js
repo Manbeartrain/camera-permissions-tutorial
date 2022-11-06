@@ -13,7 +13,7 @@ export default function usePhotos() {
 		try {
 			const response = await launchCamera(options);
 			if (response.didCancel) {
-				return;
+				return "";
 			} else {
 				return response.assets[0]?.uri;
 			}
@@ -33,7 +33,7 @@ export default function usePhotos() {
 		try {
 			const response = await launchImageLibrary(options);
 			if (response.didCancel) {
-				return;
+				return "";
 			} else {
 				return response.assets[0]?.uri;
 			}
