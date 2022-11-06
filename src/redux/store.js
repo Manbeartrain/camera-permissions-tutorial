@@ -14,7 +14,7 @@ const reducers = combineReducers({
 const persistConfig = {
 	key: "root",
 	storage: AsyncStorage,
-	whitelist: [] // add reducers you want to persist here
+	whitelist: ["UserSlice"] // add reducers you want to persist here
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

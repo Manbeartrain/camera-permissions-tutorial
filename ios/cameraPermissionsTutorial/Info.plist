@@ -35,6 +35,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>App required camera access to add profile avatar</string>
+	 <key>NSPhotoLibraryAddUsageDescription</key>
+  	<string>App required camera access to add profile avatar</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>

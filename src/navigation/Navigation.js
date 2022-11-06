@@ -6,10 +6,16 @@ import { NAVIGATORS } from "../utils/screens";
 
 import LandingScreen from "../screens/LandingScreen";
 import BottomTabNavigation from "./BottomTabNavigation";
+import ModalNavigation from "./ModalNavigation";
 
 const Stack = createStackNavigator();
 
 const NAVIGATION_OPTIONS = {
+	headerShown: false
+};
+
+const MODAL_OPTIONS = {
+	presentation: "modal",
 	headerShown: false
 };
 
@@ -25,6 +31,11 @@ const Navigation = () => (
 				name={NAVIGATORS.BOTTOM_TAB}
 				component={BottomTabNavigation}
 				options={NAVIGATION_OPTIONS}
+			/>
+			<Stack.Screen
+				name={NAVIGATORS.MODAL}
+				component={ModalNavigation}
+				options={MODAL_OPTIONS}
 			/>
 		</Stack.Navigator>
 	</NavigationContainer>

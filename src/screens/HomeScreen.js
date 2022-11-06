@@ -1,16 +1,32 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useLayoutEffect } from "react";
+import { Pressable, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import UserProfile from "../components/home/UserProfile";
+import UserDetails from "../components/home/UserDetails";
+import { MODAL_SCREENS, NAVIGATORS } from "../utils/screens";
 
-import { Button } from "@digital-art-dealers/react-native-component-lib";
 const HomeScreen = () => {
+	const navigation = useNavigation();
+	const handleEditProfile = () => {
+		navigation.navigate(NAVIGATORS.MODAL, {
+			screen: MODAL_SCREENS.EDIT_USER_PROFILE
+		});
+	};
+	useLayoutEffect(() => {
+		navigation.setOptions({
+			headerShadowVisible: false,
+			headerRight: () => (
+				<Pressable className="mr-4" onPress={handleEditProfile}>
+					<Icon name="edit" size={32} color="white" />
+				</Pressable>
+			)
+		});
+	}, [navigation]);
 	return (
-		<View className="h-full w-full justify-center px-4">
-			<Button
-				buttonColor="bg-blue-600"
-				textColor="text-white"
-				onPress={() => {}}
-				label="Change this button"
-			/>
+		<View className="bg-white w-full h-full">
+			<UserProfile />
+			<UserDetails />
 		</View>
 	);
 };
